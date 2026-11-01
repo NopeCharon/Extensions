@@ -441,7 +441,7 @@ final class LlmClassificationExtension extends Minz_Extension {
 				$prefix = $this->getUserConfigurationString('tag_prefix') ?? '';
 				// Decode the stored tags before re-adding them (will be HTML-encoded again in applyClassification)
 				$existingTags = array_map(
-					static fn(string $tag) => htmlspecialchars_decode($tag, ENT_COMPAT),
+					static fn(string $tag) => htmlspecialchars_decode($tag, ENT_QUOTES),
 					$existingEntry->tags()
 				);
 				if ($prefix !== '') {
